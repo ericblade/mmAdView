@@ -31,7 +31,16 @@ enyo.kind({
     {
         var deviceInfo = enyo.fetchDeviceInfo();
         this.uip = inResponse.ip;
-        this.auid = deviceInfo ? deviceInfo.serialNumber : inResponse.ip; /* If not running on a device, then use IP address for uid */
+        // It appears that they do some kind of User-Agent filtering for desktop browsers.
+        // We want to be able to test, or even run the code in desktop browsers, SO
+        // we'll supply a TouchPad UA, since that is known to work, if our fetchDeviceInfo
+        // call fails.
+        if(deviceInfo) {
+            this.auid = deviceInfo.serialNumber;
+        } else {
+            this.auid = inResponse.ip;
+            this.ua = "Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.5; U; en-US) AppleWebKit/534.6 (KHTML, like Gecko) wOSSystem/234.83 Safari/534.6 TouchPad/1.0"
+        }
         this.loadAd();
     },
     loadAd: function()
