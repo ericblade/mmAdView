@@ -1,0 +1,40 @@
+Enyo 1.0 MillenialMedia AdView
+
+This is based on the documentation and samples for other platforms provided by Millenial Media, at 
+http://www.millenialmedia.com/ .
+
+usage:
+
+Add mmAdView.js to your depends.js, prior to your main kind.  Add the following to your components list:
+
+{ name: "AdView", kind: "MillenialMedia.AdView", apid: "*Your Assigned APID here*" }
+
+That's basically it.  By default, the control will resize to fit the width/height of the received advertisement.
+If this is not acceptable, you may specify autoResize: false within the component definition.
+
+You may also specify additional metadata to provide to MM, as per their documentation, by passing it contained within
+an object, as:
+
+metadata: { "age":"25" }
+
+In case it's ever needed, you can also specify the server to retrieve the advertisement from, as:
+
+adserver: "ads.mp.mydas.mobi"
+
+This advertising control does not automatically refresh on it's own -- I figured it would be better for the 
+individual app authors to maintain their own refresh policies.  
+
+To get a new ad, call: this.$.AdView.loadAd()
+
+That is pretty much it.  After you configure a new APID from the MillenialMedia control panel, you will likely need
+to wait several hours before their system will start serving ads to it.  
+
+It appears from my initial testing, that if you specify "webOS" as the target operating system for your ads in 
+the Millenial control panel, that you will nearly always receive a standard banner-sized 400x60 or thereabouts ad. 
+You can specify an Android or iOS system in the app configuration, and receive different sizes and types of 
+medias.  Hopefully they will begin to support these additional types and sizes of ads within webOS as well.
+
+This has not undergone extensive testing, but it works for me.  Your mileage may vary.  If you find something that
+doesn't work, or have any suggestions to enhance it, please feel free to let me know, or better yet, send a pull
+request.
+
