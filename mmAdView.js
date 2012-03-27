@@ -37,6 +37,8 @@ enyo.kind({
         // call fails.
         if(deviceInfo) {
             this.auid = deviceInfo.serialNumber;
+        } else if(window.PhoneGap || window.Cordova) {
+            this.auid = device.uuid;
         } else {
             this.auid = inResponse.ip;
             this.ua = "Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.5; U; en-US) AppleWebKit/534.6 (KHTML, like Gecko) wOSSystem/234.83 Safari/534.6 TouchPad/1.0"
