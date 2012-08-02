@@ -7,7 +7,7 @@ http://www.millenialmedia.com/ .
 
 usage:
 
-Add mmAdView.js to your depends.js, prior to your main kind.  Add the following to your components list:
+Add mmAdView.js to your package.js, prior to your main kind.  Add the following to your components list:
 
 { name: "AdView", kind: "MillenialMedia.AdView", apid: "*Your Assigned APID here*" }
 
