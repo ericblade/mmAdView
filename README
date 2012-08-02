@@ -1,4 +1,6 @@
-Enyo 1.0 MillenialMedia AdView
+-- Update to work under Enyo 2.0
+
+MillenialMedia AdView
 
 This is based on the documentation and samples for other platforms provided by Millenial Media, at 
 http://www.millenialmedia.com/ .
